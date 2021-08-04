@@ -26,10 +26,12 @@ console.log(contaCorrenteGabriel);
 // --------------------------------------------------------------
 
 const cliente2 = new Cliente();
-cliente2.nome = 'Camila';
+cliente2.nome = "Camila";
 cliente2.cpf = 22233344455;
 
 const contaCorrenteCamila = new ContaCorrente();
+// contaCorrenteCamila.cliente = new Cliente();
+
 contaCorrenteCamila.saldo = 0;
 contaCorrenteCamila.agencia = 1001;
 
