@@ -1,0 +1,21 @@
+{
+  "name": "bytebank",
+  "version": "1.0.0",
+  "description": "projeto do bytebank para seus clientes",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielRioo/Alura_JavaScript.git"
+  },
+  "author": "Gabriel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabrielRioo/Alura_JavaScript/issues"
+  },
+  "homepage": "https://github.com/GabrielRioo/Alura_JavaScript#readme",
+  "type": "module"
+}
