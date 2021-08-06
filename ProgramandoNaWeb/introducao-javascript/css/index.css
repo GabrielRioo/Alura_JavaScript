@@ -112,6 +112,10 @@ button{
     clear: both;
     margin: 10px 0px;
 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 }
 
 button:active{

@@ -1,8 +1,12 @@
 var titulo = document.querySelector(".titulo");
 titulo.textContent = "Batata";
 
+titulo.addEventListener("click", () => {
+    console.log('fui clicado')
+});
+
 var pacientes = document.querySelectorAll(".paciente");
-console.log(pacientes);
+// console.log(pacientes);
 
 for (let i = 0; i < pacientes.length; i++) {
     var paciente = pacientes[i];
@@ -37,5 +41,11 @@ for (let i = 0; i < pacientes.length; i++) {
   }
 }
 
-console.log(tdImc);
-console.log(paciente);
+var botaoAdicionar = document.querySelector("#adicionar-paciente");
+botaoAdicionar.addEventListener('click', (event) => {
+    event.preventDefault();
+    console.log('fui clicado');
+})
+
+// console.log(tdImc);
+// console.log(paciente);
