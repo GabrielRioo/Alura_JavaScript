@@ -20,12 +20,16 @@ for (let i = 0; i < pacientes.length; i++) {
     console.log("Peso invalido");
     pesoValido = false;
     imc.textContent = "Peso invalido!";
+
+    paciente.classList.add("paciente-invalido");
   }
 
   if (altura <= 0 || altura >= 3.0) {
     console.log("Altura invalida");
     alturaValida = false;
     imc.textContent = "Altura invalida!";
+
+    paciente.classList.add("paciente-invalido");
   }
 
   if (alturaValida && pesoValido) {
