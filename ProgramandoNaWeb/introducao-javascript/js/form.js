@@ -22,9 +22,9 @@ botaoAdicionar.addEventListener("click", (event) => {
   var tabela = document.querySelector("#tabela-pacientes");
   tabela.appendChild(pacienteTr);
 
-  form.reset();
+  form.reset(); // limpa o form
   var mensagensErro = document.querySelector("#mensagens-erro");
-  mensagensErro.innerHTML = "";
+  mensagensErro.innerHTML = ""; // limpa as mensagens de erro
 
   console.log(pacienteTr);
 });
