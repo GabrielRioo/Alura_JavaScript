@@ -26,14 +26,9 @@ export class ContaCorrente extends Conta {
         return this._saldo;
     }
 
+    // sobreescrevendo o comportamento de sacar
     sacar(valor) {
         let taxa = 1.1;
-        const valorSacado = taxa * valor;
-
-        if (this._saldo >= valorSacado) {
-            this._saldo -= valorSacado;
-
-            return valorSacado;
-        }
+        return super._sacar(taxa, valor);
     }
 }
