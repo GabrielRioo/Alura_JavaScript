@@ -13,8 +13,13 @@ gerente.cadastrarSenha("123");
 const diretorLogado = SistemaAutenticacao.login(diretor, "123456789");
 const gerenteLogado = SistemaAutenticacao.login(gerente, "123");
 
+const cliente = new Cliente("Leo", 45678923100, "321");
+const clienteLogado = SistemaAutenticacao.login(cliente, "321");
+
+
 console.log(`diretor: ${diretorLogado}`);
 console.log(`gerente: ${gerenteLogado}`);
+console.log(`cliente: ${clienteLogado}`);
 // ------------------------------------------------
 
 // import { Cliente } from './Cliente.js'
