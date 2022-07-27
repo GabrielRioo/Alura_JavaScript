@@ -7,20 +7,30 @@ itens.forEach(element => {
 })
 
 form.addEventListener('submit', event => {
+    event.preventDefault();
     const nome = event.target.elements['nome'];
     const quantidade = event.target.elements['quantidade'];
-    
-    event.preventDefault();
-    
+
+    const existe = itens.find(elemento => elemento.nome === nome.value)
+
     const itemAtual = {
         'nome': nome.value,
         'quantidade': quantidade.value
     }
 
-    CriaElemento(itemAtual)
+    if (existe) {
+        itemAtual.id = existe.id
 
+        AtualizaElemento(itemAtual)
 
-    itens.push(itemAtual);
+        itens[itens.findIndex(element => element.id === existe.id)] = itemAtual
+    }
+    else {
+        itemAtual.id = itens[itens.length -1] ? itens[itens.length -1] + 1 : 0;
+        CriaElemento(itemAtual)
+        
+        itens.push(itemAtual);
+    }
 
     localStorage.setItem('itens', JSON.stringify(itens))
 
@@ -33,14 +43,38 @@ function CriaElemento(item) {
 
     const novoItem = document.createElement('li');
     novoItem.classList.add('item');
-    novoItem.innerHTML = item.nome;
     
     const numeroItem = document.createElement('strong')
     numeroItem.innerHTML = item.quantidade;
-    
+    numeroItem.dataset.id = item.id;
     novoItem.appendChild(numeroItem)
+    
+    novoItem.innerHTML += item.nome;
+    
+    novoItem.appendChild(BotaoDeleta(item.id));
     lista.appendChild(novoItem)
 
-    
+}
 
+function AtualizaElemento(item) {
+    document.querySelector('[data-id="'+item.id+'"]').innerHTML = item.quantidade
+}
+
+function BotaoDeleta(id) {
+    const elementoBotao = document.createElement('button');
+    elementoBotao.innerHTML = 'X';
+
+    elementoBotao.addEventListener('click', function() {
+        DeletaElemento(this.parentElement, id);
+
+    })
+
+    return elementoBotao;
+}
+
+function DeletaElemento(tag, id) {
+    tag.remove();
+    itens.splice(itens.findIndex(element => element.id === id), 1)
+
+    localStorage.setItem('itens', JSON.stringify(itens))
 }
